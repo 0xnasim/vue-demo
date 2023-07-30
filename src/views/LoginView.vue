@@ -1,7 +1,7 @@
 <template>
-  <main class="flex h-screen">
-    <div class="w-1/2 bg-pink-500"></div>
-    <div class="w-1/2">
+  <main>
+   
+    <div>
       <LoginComp />
     </div>
   </main>
@@ -9,30 +9,31 @@
 
 <script setup>
 import LoginComp from '../components/LoginComp.vue'
-import { ref, watchEffect } from 'vue'
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
-import { useRouter } from 'vue-router'
 
-const router = useRouter()
+//  import { ref, watchEffect } from 'vue'
+// import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+//  import { useRouter } from 'vue-router'
 
-const isLoggedIn = ref(true)
+//  const router = useRouter()
 
-watchEffect(() => {
-  if (!isLoggedIn.value) {
-    router.push()
-  }
-}, [isLoggedIn])
+//  const isLoggedIn = ref(true)
 
-onAuthStateChanged(getAuth(), function (user) {
-  if (user) {
-    isLoggedIn.value = true
-  } else {
-    isLoggedIn.value = false
-  }
-})
+//  watchEffect(() => {
+//    if (!isLoggedIn.value) {
+//      router.push()
+//    }
+// }, [isLoggedIn])
 
-const handleSignOut = () => {
-  signOut(getAuth())
-  router.push('/')
-}
+//  onAuthStateChanged(getAuth(), function (user) {
+//   if (user) {
+//     isLoggedIn.value = true
+//    } else {
+//      isLoggedIn.value = false
+//    }
+//  })
+
+//  const handleSignOut = () => {
+//    signOut(getAuth())
+//    router.push('/')
+//  }
 </script>

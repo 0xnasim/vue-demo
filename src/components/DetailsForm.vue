@@ -1,6 +1,9 @@
 <template>
+  <header class=" flex justify-end px-10 py-4">
+    <button class=" bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-xl focus-within:outline-none" @click="handleSignOut">Logout</button>
+  </header>
   <div class="min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 shadow-md rounded-lg w-96">
+    <div class="bg-white p-8 shadow-2xl rounded-lg w-96">
       <h2 class="text-2xl font-semibold mb-6">Personal Information</h2>
       <form @submit.prevent="submitForm">
         <div class="mb-4">
@@ -84,6 +87,7 @@
 
 <script>
 export default {
+ 
   data() {
     return {
       formData: {
@@ -123,6 +127,7 @@ export default {
       // Return true if the form is valid (no errors), otherwise false
       return Object.keys(this.formErrors).length === 0
     },
+    
     submitForm() {
       if (this.validateForm()) {
         // Form is valid, you can proceed with form submission or any other logic
@@ -131,7 +136,13 @@ export default {
         // Form is invalid, handle the error (e.g., show a message)
         console.error('Form is invalid. Please fill in all required fields.')
       }
-    }
+    },
+    handleSignOut() {
+      this.$router.push("/login");
+    
+  }
+    
   }
 }
+
 </script>
